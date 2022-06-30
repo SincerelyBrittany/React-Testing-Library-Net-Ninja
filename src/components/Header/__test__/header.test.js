@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import Header from "../Header";
 
+//GETBY
+
 test("should render the same text passed into title prop as the header", async () => {
   render(<Header title="My Header" />);
   const headerElement = screen.getByText(/My Header/i); // regular expression
@@ -30,4 +32,22 @@ test("renders by heading title", async () => {
   render(<Header />);
   const headerElement = screen.getByTestId("header-1");
   expect(headerElement).toBeInTheDocument();
+});
+
+//FIND BY
+
+test("should render the same text passed into title prop as the header", async () => {
+  render(<Header title="My Header" />);
+  // fails because it has to be asyncronys
+  // const headerElement = screen.findByText(/My Header/i);
+  const headerElement = await screen.findByText(/My Header/i);
+  expect(headerElement).toBeInTheDocument();
+});
+
+//QueryBy
+
+test("should render the same text passed into title prop as the header", async () => {
+  render(<Header title="My Header" />);
+  const headerElement = screen.queryByText(/dogs/i);
+  expect(headerElement).not.toBeInTheDocument();
 });
