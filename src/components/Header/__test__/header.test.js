@@ -51,3 +51,11 @@ test("should render the same text passed into title prop as the header", async (
   const headerElement = screen.queryByText(/dogs/i);
   expect(headerElement).not.toBeInTheDocument();
 });
+
+//GetAllBy
+
+test("should render the same text passed into title prop as the header", async () => {
+  render(<Header title="My Header" />);
+  const headerElement = screen.getAllByRole("heading");
+  expect(headerElement.length).toBe(2);
+});
