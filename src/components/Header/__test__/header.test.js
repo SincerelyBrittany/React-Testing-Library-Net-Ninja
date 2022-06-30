@@ -25,3 +25,9 @@ test("renders by heading title", async () => {
   const headerElement = screen.getByTitle("subHeader");
   expect(headerElement).toBeInTheDocument();
 });
+
+test("renders by heading title", async () => {
+  render(<Header />);
+  const headerElement = screen.getByTestId("header-1");
+  expect(headerElement).toBeInTheDocument();
+});
