@@ -10,25 +10,25 @@ describe("AddInput tests", () => {
     expect(inputElement).toBeInTheDocument();
   });
 
-  test("should render input change when you type something", async () => {
-    render(<AddInput todos={[]} setTodos={mockedSetTodo} />);
-    const inputElement = screen.getByPlaceholderText("Add a new task here...");
-    expect(inputElement).toBeInTheDocument();
-    fireEvent.change(inputElement, {
-      target: { value: "Go Grocery Shooping" },
-    });
-    expect(inputElement.value).toBe("Go Grocery Shooping");
-  });
+  //   test("should render input change when you type something", async () => {
+  //     render(<AddInput todos={[]} setTodos={mockedSetTodo} />);
+  //     const inputElement = screen.getByPlaceholderText("Add a new task here...");
+  //     expect(inputElement).toBeInTheDocument();
+  //     fireEvent.change(inputElement, {
+  //       target: { value: "Go Grocery Shooping" },
+  //     });
+  //     expect(inputElement.value).toBe("Go Grocery Shooping");
+  //   });
 
-  test("should have empty input when add button is clicked", async () => {
-    render(<AddInput todos={[]} setTodos={mockedSetTodo} />);
-    const buttonElement = screen.getByRole("button", { name: /Add/i });
-    const inputElement = screen.getByPlaceholderText("Add a new task here...");
-    expect(inputElement).toBeInTheDocument();
-    fireEvent.change(inputElement, {
-      target: { value: "Go Grocery Shooping" },
-    });
-    fireEvent.click(buttonElement);
-    expect(inputElement.value).toBe("");
-  });
+  //   test("should have empty input when add button is clicked", async () => {
+  //     render(<AddInput todos={[]} setTodos={mockedSetTodo} />);
+  //     const buttonElement = screen.getByRole("button", { name: /Add/i });
+  //     const inputElement = screen.getByPlaceholderText("Add a new task here...");
+  //     expect(inputElement).toBeInTheDocument();
+  //     fireEvent.change(inputElement, {
+  //       target: { value: "Go Grocery Shooping" },
+  //     });
+  //     fireEvent.click(buttonElement);
+  //     expect(inputElement.value).toBe("");
+  //   });
 });
