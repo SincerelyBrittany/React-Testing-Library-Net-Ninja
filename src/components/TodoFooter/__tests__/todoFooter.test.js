@@ -59,3 +59,15 @@ test("assertion toHaveTextContent", () => {
   const paragraphElement = screen.getByTestId("hello");
   expect(paragraphElement).toHaveTextContent("hello");
 });
+
+test("assertion toBeFalsy", () => {
+  render(<MockTodoFooter numberOfIncompleteTasks={1} />);
+  const paragraphElement = screen.getByTestId("hello");
+  expect(paragraphElement).not.toBeFalsy();
+});
+
+test("assertion toBeFalsy", () => {
+  render(<MockTodoFooter numberOfIncompleteTasks={1} />);
+  const paragraphElement = screen.getByText(/1 task left/i);
+  expect(paragraphElement.textContent).toBe("1 task left");
+});
