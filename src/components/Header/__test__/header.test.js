@@ -2,11 +2,12 @@ import { render, screen } from "@testing-library/react";
 import Header from "../Header";
 
 //GETBY
-
-test("should render the same text passed into title prop as the header", async () => {
-  render(<Header title="My Header" />);
-  const headerElement = screen.getByText(/My Header/i); // regular expression
-  expect(headerElement).toBeInTheDocument();
+describe("Header tests", () => {
+  test("should render the same text passed into title prop as the header", async () => {
+    render(<Header title="My Header" />);
+    const headerElement = screen.getByText(/My Header/i); // regular expression
+    expect(headerElement).toBeInTheDocument();
+  });
 });
 
 // // test("renders learn react link", async () => {
